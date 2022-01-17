@@ -1,6 +1,9 @@
+var vacasMaximas = document.getElementById("textmaxvacas");
 var vp = document.getElementById("villakitsu");
 var papel = vp.getContext("2d");
 var cantidad = random(1,5);
+
+console.log(vacasMaximas.value);
 
 var fondo = {
     url: "tile.png",
