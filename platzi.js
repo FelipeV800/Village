@@ -1,9 +1,9 @@
-var vacasMaximas = document.getElementById("textmaxvacas");
+var texto = document.getElementById('textmaxvacas');
+var boton = document.getElementById("btngenerar");
+boton.addEventListener("click", dibujar);
+
 var vp = document.getElementById("villakitsu");
 var papel = vp.getContext("2d");
-var cantidad = random(1,5);
-
-console.log(vacasMaximas.value);
 
 var fondo = {
     url: "tile.png",
@@ -62,6 +62,8 @@ function cargarPollo() {
 }
 
 function dibujar() {
+    var cantidad = random(1, parseInt(texto.value));
+
     if (fondo.cargaOK) {
         papel.drawImage(fondo.imagen, 0, 0);
     }
@@ -75,11 +77,19 @@ function dibujar() {
     }
 
     if (cerdo.cargaOK) {
-        papel.drawImage(cerdo.imagen, 100, 300);
+        for (var v = 0; v < random(1, 3); v++) {
+            var x = (random(0, 7)) * 60;
+            var y = (random(0, 7)) * 60;
+            papel.drawImage(cerdo.imagen, x, y);
+        }
     }
 
     if (pollo.cargaOK) {
-        papel.drawImage(pollo.imagen, 20, 250);
+        for (var v = 0; v < random(0, 2); v++) {
+            var x = (random(0, 7)) * 60;
+            var y = (random(0, 7)) * 60;
+            papel.drawImage(pollo.imagen, x, y);
+        }
     }
 }
 
